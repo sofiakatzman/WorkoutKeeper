@@ -1,6 +1,7 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import Routines from './Components/Routines';
+import SelectedRoutine from './Components/SelectedRoutine';
 
 function App() {
   const Airtable = require('airtable');
@@ -56,7 +57,7 @@ function App() {
       {selectedRoutine && <h2>Selected Routine: {selectedRoutine.Name}</h2>}
       {selectedRoutine && <button onClick={()=>clearout()}>Start Again</button>}
       {routines && selectedRoutine === null && <Routines routines={routines} setRoutine={setSelectedRoutine} selectedRoutine={selectedRoutine}/>}
-
+      <SelectedRoutine routine={selectedRoutine}/>
     </div>
   );
 }
