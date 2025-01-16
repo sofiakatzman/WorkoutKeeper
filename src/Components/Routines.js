@@ -24,7 +24,7 @@ function Routines({routines, setRoutine}) {
                     <div key={routine.Name}>
                         <li key={routine.id}>{routine.Name}</li>
                         <p>Last Completed {formatFriendlyDate(routine.LastCompleted)}</p>
-                        <button onClick={()=> setRoutine(routine)}>Select Routine</button>
+                        <button onClick={() => setRoutine(routine)}>Select Routine</button>
                     </div>
                 ))}
             </ul>

@@ -52,10 +52,11 @@ function App() {
   return (
     <div className="App">
       Welcome! Please select today's routine. 
-      {routines && <Routines routines={routines} setRoutine={setSelectedRoutine}/>}
       <h2>Last Completed Routine: {mostRecentRoutine}</h2>
       {selectedRoutine && <h2>Selected Routine: {selectedRoutine.Name}</h2>}
       {selectedRoutine && <button onClick={()=>clearout()}>Start Again</button>}
+      {routines && selectedRoutine === null && <Routines routines={routines} setRoutine={setSelectedRoutine} selectedRoutine={selectedRoutine}/>}
+
     </div>
   );
 }
