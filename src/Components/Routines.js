@@ -18,13 +18,15 @@ function Routines({routines, setRoutine}) {
 
     return (
         <div>
-            <h1>Routines</h1>
             <ul>
                 {routines.map((routine) => (
-                    <div key={routine.Name}>
-                        <li key={routine.id}>{routine.Name}</li>
-                        <p>Last Completed {formatFriendlyDate(routine.LastCompleted)}</p>
-                        <button onClick={() => setRoutine(routine)}>Select Routine</button>
+                    
+                    <div key={routine.Name} className="card">
+                        <p className="heading"><li key={routine.id}>{routine.Name}</li></p>
+                        <p className="details">Last Completed {formatFriendlyDate(routine.LastCompleted)}</p>
+                        <div class="buttonContainer">
+                            <button onClick={() => setRoutine(routine)}>Select Routine</button>
+                        </div>
                     </div>
                 ))}
             </ul>
@@ -33,3 +35,4 @@ function Routines({routines, setRoutine}) {
 }
 
 export default Routines;
+
