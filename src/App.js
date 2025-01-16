@@ -53,14 +53,19 @@ function App() {
 
   return (
     <div className="App">
-      Welcome! Please select today's routine. 
-      <p><b>Last Completed Routine:</b> {mostRecentRoutine}</p>
-      <div className="routines-container">
-        {selectedRoutine && <h2>Selected Routine: {selectedRoutine.Name}</h2>}
-        {selectedRoutine && <button onClick={()=>clearout()}>Start Again</button>}
-        {routines && selectedRoutine === null && <Routines routines={routines} setRoutine={setSelectedRoutine}/>}
-        <SelectedRoutine routine={selectedRoutine} setRoutine={setSelectedRoutine} setCelebrate={setCelebrate}/>
-        {celebrate && <h1>CONGRATS!</h1>}
+      <div className="stats">
+      <span><strong>Last Workout:</strong> {mostRecentRoutine}</span>
+      {/* <p className="mono"><strong>Last Completed Routine:</strong> {mostRecentRoutine}</p> */}
+      </div>
+      <div className="line-container">
+        <div className="vertical-line"></div>
+        <div className="routines-container">
+          {selectedRoutine && <h2>Selected Routine: {selectedRoutine.Name}</h2>}
+          {selectedRoutine && <button onClick={() => clearout()}>Start Again</button>}
+          {routines && selectedRoutine === null && <Routines routines={routines} setRoutine={setSelectedRoutine} />}
+          <SelectedRoutine routine={selectedRoutine} setRoutine={setSelectedRoutine} setCelebrate={setCelebrate} />
+          {celebrate && <h1>CONGRATS!</h1>}
+        </div>
       </div>
     </div>
   );

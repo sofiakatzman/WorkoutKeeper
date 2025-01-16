@@ -22,10 +22,17 @@ function Routines({routines, setRoutine}) {
                 {routines.map((routine) => (
                     
                     <div key={routine.Name} className="card">
-                        <p className="heading"><li key={routine.id}>{routine.Name}</li></p>
-                        <p className="details">Last Completed {formatFriendlyDate(routine.LastCompleted)}</p>
-                        <div class="buttonContainer">
-                            <button onClick={() => setRoutine(routine)}>Select Routine</button>
+                        <div className="routine-details mono">
+                            <p className="heading"><strong><li key={routine.id}>{routine.Name}</li></strong></p>
+                            
+                            <div>
+                                <p className="details">Last Completed</p>
+                                <p> {formatFriendlyDate(routine.LastCompleted)}</p>
+                            </div>
+                        </div>
+                        
+                        <div class="buttonContainer ">
+                            <button onClick={() => setRoutine(routine)} className="mono">Start</button>
                         </div>
                     </div>
                 ))}

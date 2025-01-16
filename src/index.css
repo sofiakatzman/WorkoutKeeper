@@ -1,12 +1,10 @@
 body {
   margin: auto;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: var(--font-polysans-mono);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  max-width: 300px;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  max-width: 260px;
+  margin-left: 12px;
+  margin-top: 20px;
+  background-color: #72f1c1;
 }
