@@ -4,6 +4,7 @@ function Excercise({ excercise }) {
     const Airtable = require('airtable');
     const base = new Airtable({ apiKey: process.env.REACT_APP_AIRTABLE_API_KEY }).base('appLHqfsmzJx6TzrT');
     const [excerciseItem, setExcerciseItem] = useState(null);
+    const [isChecked, setIsChecked] = useState(false);
 
     useEffect(() => {
         console.log("you hit ex:");
@@ -22,17 +23,29 @@ function Excercise({ excercise }) {
         fetchExcercise();
     }, [excercise]);
 
+    const handleCheckboxChange = () => {
+        setIsChecked((prevChecked) => !prevChecked);
+    };
+
     return (
         <div>
             {excerciseItem ? (
-                <div key={excerciseItem.id}>
+                <div key={excerciseItem.id} className={`exercise-item ${isChecked ? 'checked-off' : ''}`}>
+                    <label>
+                    <input
+                            type="checkbox"
+                            className="exercise-checkbox"
+                            checked={isChecked}
+                            onChange={handleCheckboxChange}
+                        />
+                    </label>
                     <h2>{excerciseItem.fields?.Name} - {excerciseItem.fields?.Equipment}</h2>
                     {excerciseItem.fields?.Duration ? (
-                        <p>{excerciseItem.fields.Duration} minutes @ {excerciseItem.fields?.Weight}</p>
+                        <span class="exercise-text">{excerciseItem.fields.Duration} minutes @ {excerciseItem.fields?.Weight}</span>
                     ) : (
-                        <p>
+                        <span class="exercise-text">
                             {excerciseItem.fields?.Reps} reps x {excerciseItem.fields?.Sets} sets @ {excerciseItem.fields?.Weight} lbs
-                        </p>
+                        </span>
                     )}
                 </div>
             ) : (

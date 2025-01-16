@@ -1,0 +1,48 @@
+.workout-routine {
+    font-family: Arial, sans-serif;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  li {
+    margin: 10px 0;
+  }
+  
+  label {
+    cursor: pointer;
+  }
+  
+  input[type="checkbox"] {
+    margin-right: 10px;
+  }
+  
+  .exercise-text {
+    transition: color 0.3s, text-decoration 0.3s;
+  }
+  
+  input[type="checkbox"]:checked + .exercise-text {
+    color: gray;
+    text-decoration: line-through;
+  }
+
+  .exercise-item {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    font-family: Arial, sans-serif;
+}
+
+.exercise-checkbox {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.checked-off .exercise-text,
+.checked-off h2 {
+    color: gray;
+    text-decoration: line-through;
+    transition: color 0.3s, text-decoration 0.3s;
+}
