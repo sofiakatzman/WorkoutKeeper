@@ -1,8 +1,7 @@
 import Excercises from "./Excercises"
 
 function SelectedRoutine({routine}){
-   console.log(routine)
-
+    console.log()
        // Format the date
        const formatDate = (dateString) => {
         if (!dateString) return "Not completed yet";
@@ -34,7 +33,7 @@ function SelectedRoutine({routine}){
                     <b>Last Completed:</b> {formatDate(routine.LastCompleted)}{" "}
                     {daysAgo !== null && `(${daysAgo} day${daysAgo === 1 ? "" : "s"} ago)`}
                 </p>
-                <Excercises excercises={routine.Excercises}/>
+                <Excercises excercises={routine.Excercises} routine={routine.id}/>
         </div>
     )
 }

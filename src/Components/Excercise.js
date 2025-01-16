@@ -1,30 +1,30 @@
 import { useState, useEffect } from "react";
 
-function Excercise({ excercise }) {
+function Excercise({ excercise, onCompletionChange}) {
     const Airtable = require('airtable');
     const base = new Airtable({ apiKey: process.env.REACT_APP_AIRTABLE_API_KEY }).base('appLHqfsmzJx6TzrT');
     const [excerciseItem, setExcerciseItem] = useState(null);
     const [isChecked, setIsChecked] = useState(false);
 
     useEffect(() => {
-        console.log("you hit ex:");
-        console.log(excercise);
 
         const fetchExcercise = async () => {
             try {
-                const record = await base('Excercises').find(excercise);
-                console.log('Retrieved:', record);
-                setExcerciseItem(record);
+                const record = await base('Excercises').find(excercise)
+                console.log('Retrieved:', record)
+                setExcerciseItem(record)
             } catch (err) {
-                console.error("Error fetching record:", err);
+                console.error("Error fetching record:", err)
             }
         };
 
-        fetchExcercise();
-    }, [excercise]);
+        fetchExcercise()
+    }, [excercise])
 
     const handleCheckboxChange = () => {
-        setIsChecked((prevChecked) => !prevChecked);
+        const newCheckedState = !isChecked
+        setIsChecked(newCheckedState)
+        onCompletionChange(newCheckedState)
     };
 
     return (
@@ -41,9 +41,9 @@ function Excercise({ excercise }) {
                     </label>
                     <h2>{excerciseItem.fields?.Name} - {excerciseItem.fields?.Equipment}</h2>
                     {excerciseItem.fields?.Duration ? (
-                        <span class="exercise-text">{excerciseItem.fields.Duration} minutes @ {excerciseItem.fields?.Weight}</span>
+                        <span className="exercise-text">{excerciseItem.fields.Duration} minutes @ {excerciseItem.fields?.Weight}</span>
                     ) : (
-                        <span class="exercise-text">
+                        <span className="exercise-text">
                             {excerciseItem.fields?.Reps} reps x {excerciseItem.fields?.Sets} sets @ {excerciseItem.fields?.Weight} lbs
                         </span>
                     )}
