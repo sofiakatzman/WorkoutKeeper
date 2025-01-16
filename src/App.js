@@ -1,9 +1,11 @@
 import './App.css';
+import Routines from './Components/Routines';
 
 function App() {
   return (
     <div className="App">
-      Hello!
+      Welcome! Please select today's routine. 
+      <Routines />
     </div>
   );
 }
