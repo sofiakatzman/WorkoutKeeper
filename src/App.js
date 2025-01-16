@@ -9,7 +9,7 @@ function App() {
   const [selectedRoutine, setSelectedRoutine] = useState(null)
   const [mostRecentRoutine, setMostRecentRoutine] = useState(null); 
   
-
+  
   useEffect(() => {
       // Fetch all records
       base('Routines').select({
@@ -25,7 +25,7 @@ function App() {
           console.log(fetchedRoutines); 
 
           // Find the routine with the most recent timestamp
-        const recentRoutine = fetchedRoutines.reduce((latest, current) => {
+          const recentRoutine = fetchedRoutines.reduce((latest, current) => {
           const latestDate = new Date(latest.LastCompleted || 0);
           const currentDate = new Date(current.LastCompleted || 0);
 
@@ -44,7 +44,10 @@ function App() {
       });
   }, []);
   
-
+  // helper function to clear out selection 
+  function clearout(){
+    setSelectedRoutine(null)
+  }
 
   return (
     <div className="App">
@@ -52,6 +55,7 @@ function App() {
       {routines && <Routines routines={routines} setRoutine={setSelectedRoutine}/>}
       <h2>Last Completed Routine: {mostRecentRoutine}</h2>
       {selectedRoutine && <h2>Selected Routine: {selectedRoutine.Name}</h2>}
+      {selectedRoutine && <button onClick={()=>clearout()}>Start Again</button>}
     </div>
   );
 }
