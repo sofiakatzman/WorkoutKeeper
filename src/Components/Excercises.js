@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Excercise from "./Excercise";
 
-function Excercises({ excercises, routine }) {
+function Excercises({ excercises, routine, setSelectedRoutine, setCelebrate }) {
     const Airtable = require('airtable')
     const base = new Airtable({ apiKey: process.env.REACT_APP_AIRTABLE_API_KEY }).base('appLHqfsmzJx6TzrT')
     const [completedCount, setCompletedCount] = useState(0)
     const [isComplete, setIsComplete] = useState(false)
+
 
     const handleCompletionChange = (isChecked) => {
         setCompletedCount((prevCount) => prevCount + (isChecked ? 1 : -1))
@@ -51,6 +52,8 @@ function Excercises({ excercises, routine }) {
                 });
             }
         );
+        setSelectedRoutine(null)
+        setCelebrate(true)
     }
     
     return (

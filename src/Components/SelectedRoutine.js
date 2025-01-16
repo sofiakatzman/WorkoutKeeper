@@ -1,6 +1,6 @@
 import Excercises from "./Excercises"
 
-function SelectedRoutine({routine}){
+function SelectedRoutine({routine, setRoutine, setCelebrate}){
     console.log()
        // Format the date
        const formatDate = (dateString) => {
@@ -33,7 +33,7 @@ function SelectedRoutine({routine}){
                     <b>Last Completed:</b> {formatDate(routine.LastCompleted)}{" "}
                     {daysAgo !== null && `(${daysAgo} day${daysAgo === 1 ? "" : "s"} ago)`}
                 </p>
-                <Excercises excercises={routine.Excercises} routine={routine.id}/>
+                <Excercises excercises={routine.Excercises} routine={routine.id} setSelectedRoutine={setRoutine} setCelebrate={setCelebrate}/>
         </div>
     )
 }

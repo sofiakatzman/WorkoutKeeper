@@ -9,6 +9,7 @@ function App() {
   const [routines, setRoutines] = useState([]);
   const [selectedRoutine, setSelectedRoutine] = useState(null)
   const [mostRecentRoutine, setMostRecentRoutine] = useState(null); 
+  const [celebrate, setCelebrate]= useState(false)
   
   
   useEffect(() => {
@@ -56,8 +57,9 @@ function App() {
       <h2>Last Completed Routine: {mostRecentRoutine}</h2>
       {selectedRoutine && <h2>Selected Routine: {selectedRoutine.Name}</h2>}
       {selectedRoutine && <button onClick={()=>clearout()}>Start Again</button>}
-      {routines && selectedRoutine === null && <Routines routines={routines} setRoutine={setSelectedRoutine} selectedRoutine={selectedRoutine}/>}
-      <SelectedRoutine routine={selectedRoutine}/>
+      {routines && selectedRoutine === null && <Routines routines={routines} setRoutine={setSelectedRoutine}/>}
+      <SelectedRoutine routine={selectedRoutine} setRoutine={setSelectedRoutine} setCelebrate={setCelebrate}/>
+      {celebrate && <h1>CONGRATS!</h1>}
     </div>
   );
 }
