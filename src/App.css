@@ -1,6 +1,7 @@
 :root {
 --gray: #b4b4ad;
 --purple:  rgb(103, 46, 179);
+--black: rgb(18, 4, 66);
 --font-polysans-mono: '__polySansMono_0d16dc', '__polySansMono_Fallback_0d16dc', Courier New, Courier, monospace;
 }
 
@@ -91,7 +92,7 @@ input[type="checkbox"]:checked + .exercise-text {
   position: relative;
   overflow: hidden;
   box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.062);
-  margin: 24px 8px ;
+  margin: 18px 8px ;
   padding: 20px 10px;
 }
 
@@ -151,7 +152,7 @@ input[type="checkbox"]:checked + .exercise-text {
 
 .stats{
   margin-left: 18px;
-  color:rgb(201, 117, 218);
+  color: var(--black);
 }
 
 .line-container {
