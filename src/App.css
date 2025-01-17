@@ -176,7 +176,7 @@ input[type="checkbox"]:checked + .exercise-text {
 .restart{
   position: absolute;
   right: 0;
-  margin-right: 12px; 
+  margin-right: 32px; 
   top: 86px; 
   transform: translateY(-50%); 
   background-color: var(--darkaqua);
