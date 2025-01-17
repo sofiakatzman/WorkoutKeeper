@@ -74,8 +74,8 @@ function Excercises({ excercises, routine, setSelectedRoutine, setCelebrate }) {
                 <p>No excercises available.</p>
             )}
             
-            <div className="container">
-                {isComplete ? <button onClick={()=> finishWorkout()}>Complete Workout</button> : <h1 className="mono center">Completed: {completedCount} / {excercises?.length}</h1>}
+            <div className="container ">
+                {isComplete ? <button className="submit" onClick={()=> finishWorkout()}>Complete Workout</button> : <h1 className="mono center">Completed: {completedCount} / {excercises?.length}</h1>}
             </div>
             </div>
         </div>

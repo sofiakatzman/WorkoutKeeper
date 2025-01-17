@@ -203,3 +203,7 @@ input[type="checkbox"]:checked + .exercise-text {
 .center{
   text-align: center;
 }
+
+.submit{
+  margin-top: 24px;
+}
