@@ -30,8 +30,8 @@ function SelectedRoutine({routine, setRoutine, setCelebrate}){
                <div className="selected-routine-container">
                <h2 className="heading">{routine.Name}</h2>
                <h3 className="details mono xsmt"><b>Focus:</b> {routine.Focus}</h3>
-                <p className="details mono xsmt">Last Completed:{formatDate(routine.LastCompleted)}{" "}
-                    {daysAgo !== null && `(${daysAgo} day${daysAgo === 1 ? "" : "s"} ago)`}
+                <p className="details mono xsmt"><strong>Last Completed: </strong>
+                    {daysAgo !== null && `${daysAgo} day${daysAgo === 1 ? "" : "s"} ago`}
                 </p>
                 
 

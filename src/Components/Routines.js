@@ -26,7 +26,7 @@ function Routines({routines, setRoutine}) {
                             <p className="heading"><strong><li key={routine.id}>{routine.Name}</li></strong></p>
                             
                             <div>
-                                <p className="details">Last Completed</p>
+                                <strong><p className="details">Last Completed</p></strong>
                                 <p> {formatFriendlyDate(routine.LastCompleted)}</p>
                             </div>
                         </div>
