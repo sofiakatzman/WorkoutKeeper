@@ -3,7 +3,7 @@ body {
   font-family: var(--font-polysans-mono);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  max-width: 260px;
+  max-width: 300px;
   margin-left: 12px;
   margin-top: 20px;
   background-color: #72f1c1;
