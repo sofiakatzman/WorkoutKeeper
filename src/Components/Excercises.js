@@ -58,8 +58,8 @@ function Excercises({ excercises, routine, setSelectedRoutine, setCelebrate }) {
     
     return (
         <div>
-            <h1>Excercises Here</h1>
-            <p>Completed Excercises: {completedCount} / {excercises?.length}</p>
+        <div className="card">
+            <div>
             {excercises?.length > 0 ? (
                 <ul>
                     {excercises.map((excercise) => (
@@ -74,8 +74,12 @@ function Excercises({ excercises, routine, setSelectedRoutine, setCelebrate }) {
                 <p>No excercises available.</p>
             )}
             
-            {isComplete && <button onClick={()=> finishWorkout()}>Complete Workout</button>}
-
+            <div className="container">
+                {isComplete ? <button onClick={()=> finishWorkout()}>Complete Workout</button> : <h1 className="mono center">Completed: {completedCount} / {excercises?.length}</h1>}
+            </div>
+            </div>
+        </div>
+        
         </div>
     );
 }

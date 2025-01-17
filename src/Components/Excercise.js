@@ -34,19 +34,22 @@ function Excercise({ excercise, onCompletionChange}) {
                     <label>
                     <input
                             type="checkbox"
-                            className="exercise-checkbox"
+                            className="exercise-checkbox mono"
                             checked={isChecked}
                             onChange={handleCheckboxChange}
                         />
                     </label>
-                    <h2>{excerciseItem.fields?.Name} - {excerciseItem.fields?.Equipment}</h2>
+                    <div>
+                    <p className="exercise-text details mono">{excerciseItem.fields?.Name} - {excerciseItem.fields?.Equipment}</p>
                     {excerciseItem.fields?.Duration ? (
                         <span className="exercise-text">{excerciseItem.fields.Duration} minutes @ {excerciseItem.fields?.Weight}</span>
                     ) : (
                         <span className="exercise-text">
-                            {excerciseItem.fields?.Reps} reps x {excerciseItem.fields?.Sets} sets @ {excerciseItem.fields?.Weight} lbs
+                            {excerciseItem.fields?.Sets} sets x {excerciseItem.fields?.Reps} reps @ {excerciseItem.fields?.Weight} lbs
                         </span>
                     )}
+                    </div>
+                    
                 </div>
             ) : (
                 <p>Loading...</p>
